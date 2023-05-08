@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TEST PROJECT</title>
+    <link rel="stylesheet" "type=text/css" href="{% static 'css/styles-merged.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css'%}">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css2/util.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css2/main.css'%}">
+    <link href="{% static 'css1/style.css'%}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'css1/style2.css' %}" rel="stylesheet" type="text/css" media="all" />
+	  
+
+    <!--[if lt IE 9]>
+      <script src="{% static 'rk/js/vendor/html5shiv.min.js' %} "></script>
+      <script src="{% static 'rk/js/vendor/respond.min.js' %}"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-default probootstrap-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://localhost:8000/" ><img src="{% static 'img/dope.png'%}"></a>
+
+        </div>
+
+        <div id="navbar-collapse" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="#" data-nav-section="features">Test website for MYSQL </a></li>
+
+          </ul>
+        </div>
+      </div>
+
+    </nav>
+
+    <section class="probootstrap-hero prohttp://localhost/probootstrap/frame/#featuresbootstrap-slant" style="background-image:url({% static 'img/final.jpg'%})" data-section="home" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row intro-text">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <h1 class="probootstrap-heading probootstrap-animate">TEST PROJECT</h1>
+            <div class=" center">
+              <p class="probootstrap-animate">
+                  <form  action="search" method="GET">
+    			          {%csrf_token%}
+					          <input type="text"  name="querry" placeholder="enter the genere of music you are looking for" required="" >					          
+                  <input type="submit" value="Submit">
+                  </form>
+            <div class="probootstrap-subheading center">
+              <p class="probootstrap-animate">
+                <a href="http://127.0.0.1:8000/predict"  role="button" class="btn btn-primary">check the genre of your music</a><a href="http://localhost:8000/chatbot" class="btn btn-default smoothscroll" role="button">talk to our chatbot</a></p>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%if rand_10%}
+    <div class="limiter">
+    <div class="container-table100" >
+    <div class="wrap-table100" >	
+    <div class="table100 ver2 m-b-110">
+	  <table data-vertable="ver4">
+	  <thead>
+	  <tr class="row100 head">
+		<th class="column100 column1" data-column="column1">name</th>
+		<th class="column100 column2" data-column="column2">duration</th>
+		<th class="column100 column3" data-column="column3">url</th>
+		<th class="column100 column4" data-column="column4">artist</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	{%for key, value in rand_10.items%}
+
+	<tr class="row100",>
+		
+		<td class="column100 column2" data-column="column2">{{ value.name }}</td>
+		<td class="column100 column3" data-column="column3">{{ value.duration}}</td>
+		<td class="column100 column4" data-column="column4"><a href="{{ value.url}}">{{ value.url}}</a></td>
+		<td class="column100 column5" data-column="column5">{{ value.artist.name }}</td>
+		
+	</td>
+  
+	{%endfor%}
+
+
+	</tbody>
+	</table>
+	</div>
+			</div>
+		</div>
+	</div>
+  {%endif%}s
+    <script src="{% static 'js/scripts.min.js'%}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+  </body>
+</html>

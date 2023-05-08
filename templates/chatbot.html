@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chatbot</title>
+    <link rel="stylesheet" "type=text/css" href="{% static 'rk/css/styles-merged.css' %}">
+    <link rel="stylesheet" href="{% static 'rk/css/style.min.css'%}">
+    <link rel="stylesheet" href="{% static 'rk/fonts/icomoon/style.css' %}">
+
+    <!--[if lt IE 9]>
+      <script src="{% static 'rk/js/vendor/html5shiv.min.js' %} "></script>
+      <script src="{% static 'rk/js/vendor/respond.min.js' %}"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <section class="probootstrap-section probootstrap-bg-light" id="features" data-section="features">
+        <div class="container">
+            <div class="row text-center mb100">
+                <div class="col-md-8 col-md-offset-2 probootstrap-section-heading">
+                    <h2 class="mb30 text-black probootstrap-heading">musically</h2>
+                </div>
+            </div>
+        <!-- END row -->
+        <div class="row mb100">
+            <div class="col-md-4 col-md-pull-1 probootstrap-section-heading">
+                <h3 class="text-primary probootstrap-heading-2">musically</h3>
+                <p><p>{{raw.bot}}</p></p>
+            </div>
+        </div>
+        <!-- END row -->
+        <div class="row mb100">
+            <div class="col-md-4 col-md-pull-8 probootstrap-section-heading">
+                <h3 class="text-primary probootstrap-heading-2">user</h3>
+                <p><p>{{raw.user}}</p></p>
+            </div>
+        </div>
+        <!-- END row -->
+        </div>
+        <form  action="ask" method="POST">
+    			          {%csrf_token%}
+		<input type="text"  name="question" placeholder="enter the genere of music you are looking for" required="" >					          
+        <input type="submit" value="Send">
+        </form>
+    </section>   
+    <script src="{% static 'rk/js/scripts.min.js'%}"></script>
+    <script src="{% static 'rk/js/custom.js' %}"></script>
+  </body>
+</html>
